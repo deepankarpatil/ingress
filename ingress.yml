@@ -17,16 +17,21 @@ spec:
   rules:
   - host: proda.semperis.com
     http:
+      paths:
       - path: /
         pathType: Prefix
         backend:
-          serviceName: aks-helloworld-one
-          servicePort: 80
+          service:
+            name: aks-helloworld-one
+            port:
+              number: 80
   - host: prodb.semperis.com
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
-          serviceName: aks-helloworld-two
-          servicePort: 80
+          service:
+            name: aks-helloworld-two
+            port:
+              number: 80
